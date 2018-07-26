@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       resources :articles
-      resources :user_articles
+
+      get 'userarticles' => 'user_articles#index'
     end
   end
 end
