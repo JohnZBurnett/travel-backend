@@ -3,4 +3,19 @@ class Api::V1::UsersController < ApplicationController
         @users = User.all
         render json: @users
     end
+
+      def show
+        @user = User.find(params[:id])
+        render json: @user
+      end
+
+    def create
+        @user = User.find_or_create(user_params)
+    end
+
+    private
+
+    def user_params
+        params.permit(:username, :password)
+    end
 end
