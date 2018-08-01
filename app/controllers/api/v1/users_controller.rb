@@ -16,8 +16,10 @@ class Api::V1::UsersController < ApplicationController
 
     def update 
         @user = User.find(params[:id])
-        @user.articles = params[:articles]
-        @user.save
+        article_id = params[:articles].last["id"]
+        user_id = params[:id].to_i
+        UserArticle.create(user_id: user_id, article_id: article_id)
+        render json: @user
     end 
 
     private

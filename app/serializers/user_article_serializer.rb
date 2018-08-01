@@ -1,5 +1,5 @@
 class UserArticleSerializer < ActiveModel::Serializer
-  attributes :user_id
+  attributes :user_id, :article_id
 
   belongs_to :user
   belongs_to :article
