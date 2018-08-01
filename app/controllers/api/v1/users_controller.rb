@@ -14,6 +14,12 @@ class Api::V1::UsersController < ApplicationController
         render json: @user
     end
 
+    def update 
+        @user = User.find(params[:id])
+        @user.articles = params[:articles]
+        @user.save
+    end 
+
     private
 
     def user_params
